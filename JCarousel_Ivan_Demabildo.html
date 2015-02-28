@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>JCarousel Activity</title>
+
+	<style>
+		#viewButtons1, #viewButtons2{
+			height:50px;
+			width:50px;
+			opacity: .9;
+		}
+		#viewButtons1{
+			position:fixed;
+			top:35%;
+			left:20%;
+		}
+		#viewButtons2{
+			position:fixed;
+			top:35%;
+			left:70%;
+		}
+		#footer{
+			position:fixed;
+			bottom:0px;
+		}
+		#header{
+			top:0px;
+			position:fixed;
+			margin:0px auto;
+			z-index: 9999;
+		}
+		#img-carousel{
+			position: absolute;
+			top:20%;
+			left:27%;
+			width:550px;
+			height:550px;
+			border-radius: 20px;
+		}
+		#footer{
+			background-color: #262626;
+			width:100%;
+			left:0px;
+			height:10%;
+			opacity: .9;
+		}
+		#header{
+			background-color: #262626;
+			width: 100%;
+			left:0%;
+			height:5%;
+			opacity: .9;
+		}
+		#desc{
+			position:absolute;
+			left:26%;
+			top:10%;
+			font-family: georgia;
+		}
+		#footerText{
+			position:fixed;
+			bottom:3%;
+			right:1%;
+		}
+		#body{
+			overflow: auto;
+		}
+		#rubbish{
+			bottom:-30%;
+			position:absolute;
+			visibility: hidden;
+		}
+	</style>
+
+
+	<script>
+		var imgArray = [];
+		imgArray[0] = "images.jpg";
+		imgArray[1] = "img-2.jpg";
+		imgArray[2] = "img-1.jpg";
+		var imgCount = 0;
+
+		function goNext(id){
+			if(imgCount == imgArray.length -1){
+				imgCount = 0;
+			}
+			else
+				imgCount++;
+			document.getElementById(id).src = imgArray[imgCount];
+		}
+
+		function goPrev(id){
+			if(imgCount <= 0){
+				imgCount = imgArray.length - 1;
+			}
+			else
+				imgCount--;
+			document.getElementById(id).src = imgArray[imgCount];
+		}
+
+	</script>
+</head>
+
+
+<body>
+
+	<div id = "header">
+	</div>
+
+	<div id = "body">
+		<div id = "images">
+			<a href = "#" onclick = "goPrev('img-carousel')"><img src = "download.png" id = "viewButtons1" ></img></a>
+			<a href = "#" onclick = "goNext('img-carousel')"><img src = "next.png" id = "viewButtons2" ></img></a>
+			<a href = "#" onclick = ""><img src = "images.jpg" id = "img-carousel" ></img></a>
+			<p id = "rubbish">s</p>
+		</div>
+
+		<div id ="desc">
+			<p>Style is interdependant on the relatedness of motivation, subcultures, and management.</p>
+		</div>
+
+	</div>
+
+	<div id = "footer">
+		<div id = "footerText">
+		All Rights Reserved.
+		</div>
+	</div>
+	
+</body>
+
+</html>
+
